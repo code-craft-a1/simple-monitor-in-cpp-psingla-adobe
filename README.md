@@ -27,18 +27,18 @@ Monitoring requires accurate reading and thresholding of the vitals.
 
 ## Self-evaluation
 
-How well does our code hold-out in the rapidly evolving [WHDS](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6111409/)
+How well does our code hold-out in the rapidly evolving [WHDS](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6111409/)?
 Can we add future functionality without disturbing existing features? Can we do it with low effort and high reliability?
 
 ## The future
 
-- New vital might need to be monitored (ex: SPO2 during pandemic)
-- Vendor might provide additional vital reading (blood pressure)
-- Limits may change based on age of patient
+- May need new vital signs
+- A vendor may provide additional vital readings (e.g., blood pressure)
+- Limits may change based on the age of a patient
 
 > Predicting the future requires Astrology!
 
-## Keep it simple
+## Keep it simple and testable
 
 Shorten the Semantic distance
 

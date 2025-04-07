@@ -1,1 +1,11 @@
-testchecker
+build/
+coverage.*
+.vs/
+
+# intermediate files of compile_commands.json, generated for clang-tidy
+*.cmake
+CMakeCache.txt
+CMakeFiles/
+Makefile
+_deps/
+compile_commands.json

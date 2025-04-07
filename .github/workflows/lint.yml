@@ -1,0 +1,35 @@
+name: Lint
+
+on: [push, pull_request]
+
+jobs:
+  inspect-code:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: prepare to install
+      run: sudo apt-get update
+    - name: python for cpplint
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+    - name: install tools
+      run: |
+        pip install cpplint
+        sudo apt-get install -y clang-tidy
+        sudo apt-get install -y cppcheck
+        cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .
+
+    - name: cpplint
+      run: |
+        cpplint  --filter=-legal --linelength=100 *.cpp *.h
+
+    - name: cppcheck
+      run: |
+        cppcheck --enable=all --error-exitcode=1 --suppress=missingIncludeSystem --std=c++17 *.cpp *.h
+
+    - name: clang-format
+      run: |
+        clang-tidy -p=. *.cpp *.h
